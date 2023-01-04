@@ -1,0 +1,45 @@
+@import url('./initBrowse.css');
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+
+  color-scheme: light dark;
+
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+}
+
+/* 在chrome 27之后，就取消了对这个属性的支持
+  利用css3的缩放，其最终大小就是：12px * 0.9（缩放比例） = 10.8px; */
+html{
+  -webkit-text-size-adjust:none;
+}
+.small-font{            
+  font-size: 12px;
+  -webkit-transform-origin-x: 0;
+  -webkit-transform: scale(0.90);
+}
+/* IE7 IE8不兼容，还是12px/加个样式font-size */
+.smallsize-font {
+  font-size:10.8px;     
+}
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
