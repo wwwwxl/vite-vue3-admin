@@ -1,0 +1,88 @@
+/* 说明：单位用rem。因为设置了根标签html单位font-size:10px 1em=10px*/
+
+/* 外边距 */
+.m-t-5{
+    margin-top: 0.5rem;
+}
+.m-t-10{
+    margin-top: 1rem;
+}
+.m-t-15{
+    margin-top: 1.5rem;
+}
+.m-t-20{
+    margin-top: 2rem;
+}
+
+
+/* 内边距 */
+.p-5{
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+.p-10{
+    padding: 1rem;
+    box-sizing: border-box;
+}
+.p-15{
+    padding: 1.5rem;
+    box-sizing: border-box;
+}
+.p-20{
+    padding: 2rem;
+    box-sizing: border-box;
+}
+.p-30{
+    padding: 3rem;
+    box-sizing: border-box;
+}
+.p-40{
+    padding: 3rem;
+    box-sizing: border-box;
+}
+
+.p-t-5{
+    padding-top: 0.5rem;
+    box-sizing: border-box;
+}
+.p-t-10{
+    padding-top: 1rem;
+    box-sizing: border-box;
+}
+.p-t-15{
+    padding-top: 1.5rem;
+    box-sizing: border-box;
+}
+.p-t-20{
+    padding-top: 2rem;
+    box-sizing: border-box;
+}
+
+.p-b-5{
+    padding-bottom: 0.5rem;
+    box-sizing: border-box;
+}
+.p-b-10{
+    padding-bottom: 1rem;
+    box-sizing: border-box;
+}
+.p-b-15{
+    padding-bottom: 1.5rem;
+    box-sizing: border-box;
+}
+.p-b-20{
+    padding-bottom: 2rem;
+    box-sizing: border-box;
+}
+
+
+
+/* flex布局 */
+.f-r{
+    display: flex;
+    flex-direction: row;
+}
+.f-c{
+    display: flex;
+    flex-direction: column;
+}

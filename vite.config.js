@@ -1,9 +1,50 @@
 import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import vue from '@vitejs/plugin-vue'  // vue文件编译
+import { resolve } from 'path' // 使用import导入解决错误
+
+// antdesign按需引入(vite)
+import Components from 'unplugin-vue-components/vite';
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    // vue
+    vue(),
+    // antdesign
+    Components({
+        resolvers: [
+          AntDesignVueResolver({
+            importStyle: 'less', // 一定要开启这个配置项
+          })
+        ]
+    })
+  ],
+  css: {
+    preprocessorOptions: {
+      less: {
+        modifyVars: { // 在这里自定义主题色等样式，可不填，不填写，ant-design-vue主题为默认颜色.
+          'primary-color': '#1da57a',
+          'link-color': '#1da57a',
+          'border-radius-base': '2px',
+        },
+        javascriptEnabled: true,// 必填，不填报错
+      },
+    },
+  },
+  resolve: {
+      alias: [//配置别名
+          { find: '@', replacement: resolve(__dirname, 'src') },
+          { find: '@utils', replacement: resolve(__dirname, 'src/utils') },
+          { find: '@c', replacement: resolve(__dirname, 'src/components') },
+          { find: '@p', replacement: resolve(__dirname, 'src/pages') }
+      ],
+      // 情景导出 package.json 配置中的exports字段
+      conditions: [],
+      // 导入时想要省略的扩展名列表
+      // 不建议使用 .vue 影响IDE和类型支持
+      extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json']
+  },
   //本地运行配置，以及反向代理配置
   server: {
     host: "localhost",
