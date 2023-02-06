@@ -8,15 +8,22 @@
   </div>
 </template>
 <script>
-import { defineComponent, onMounted, reactive, ref } from 'vue'
+import { defineComponent, onMounted, reactive, ref, getCurrentInstance } from 'vue'
+// import { useRouter } from "vue-router"
 import AccountLogin from './AccountLogin/index.vue'
 export default defineComponent({
   components: {
     AccountLogin
   },
   setup(props,ctx) {
+    // const router = useRouter()
+    const { proxy } = getCurrentInstance()
     const onFinish = (values)=>{
       console.log('success',values)
+      // router.push('/home')
+      // proxy.$router.push('/home')
+
+      proxy.$router.push('/pinia')
     }
     const phoneLogin = ()=>{
       console.log('phoneLogin')
