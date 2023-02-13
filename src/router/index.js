@@ -4,6 +4,7 @@ import { createRouter,createWebHistory} from 'vue-router';
 // 组件引用
 const Login =()=> import('@/pages/login/index.vue')
 const Pinia =()=> import('@/pages/layouts/pinia.vue')
+const Test =()=> import('@/pages/layouts/test.vue')
 const Home =()=> import('@/pages/layouts/index.vue')
 
 const router = createRouter({
@@ -21,6 +22,11 @@ const router = createRouter({
             path: '/pinia',
             component:Pinia,
             name: 'Pinia'
+        },
+        {
+            path: '/test',
+            component:Test,
+            name: 'Test'
         },
         {
             path: '/home',

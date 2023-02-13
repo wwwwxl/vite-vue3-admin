@@ -1,5 +1,9 @@
 import { defineConfig } from 'vite'
+
 import vue from '@vitejs/plugin-vue'  // vue文件编译
+import vueJsx from '@vitejs/plugin-vue-jsx' // 使用Jsx
+import { viteMockServe } from 'vite-plugin-mock' // mock
+
 import { resolve } from 'path' // 使用import导入解决错误
 
 // antdesign按需引入(vite)
@@ -11,6 +15,13 @@ export default defineConfig({
   plugins: [
     // vue
     vue(),
+    vueJsx({
+      // 默认只对扩展名为 .jsx/.tsx 进行babel解析
+      // 需要需要它解析.vue扩展名下面的jsx
+      // include: /\.[jt]sx/
+      // include: /\.[jt]sx|vue/
+    }),
+    viteMockServe({}),
     // antdesign
     Components({
         resolvers: [

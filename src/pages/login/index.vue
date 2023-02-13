@@ -23,7 +23,7 @@ export default defineComponent({
       // router.push('/home')
       // proxy.$router.push('/home')
 
-      proxy.$router.push('/pinia')
+      proxy.$router.push('/test')
     }
     const phoneLogin = ()=>{
       console.log('phoneLogin')

@@ -175,3 +175,75 @@ app.mount('#app')
         }
       ]
     }
+
+# 安装使用jsx和mock
+# npm install vite-plugin-mock mockjs -D
+# npm i @vitejs/plugin-vue-jsx -s
+# npm i @vitejs/plugin-vue-jsx@1.3.10 -D
+# vite.config.js配置如下
+plugins: [
+    // vue
+    vue(),
+    vueJsx({
+      // 默认只对扩展名为 .jsx/.tsx 进行babel解析
+      // 需要需要它解析.vue扩展名下面的jsx
+      // include: /\.[jt]sx/
+      // include: /\.[jt]sx|vue/
+    }),
+    viteMockServe({}),
+    // antdesign
+    Components({
+        resolvers: [
+          AntDesignVueResolver({
+            importStyle: 'less', // 一定要开启这个配置项
+          })
+        ]
+    })
+  ],
+  # 在项目根目录下面创建目录 mock，创建文件 mock/index.js：
+  # https://blog.csdn.net/liguoyuan819/article/details/124768562
+  # 如果mock文件夹建在src文件目录下，需要修改tsconfig.json文件  
+  # "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue","src/mock/**/*.ts"],
+  import Mockjs from 'mockjs'
+
+const mockData = [
+  {
+    url: '/api/films',
+    method: 'get',
+    response: ({ query }) => {
+      const data = Mockjs.mock({
+        'films|10': [
+          {
+            "filmId|+1": 1,
+            'name': '@cname'
+          }
+        ]
+      })
+      return {
+        code: 0,
+        msg: 'ok',
+        data
+      }
+    }
+  }
+]
+
+export default mockData
+
+# 安装使用npm install axios --save
+# 在main.js全局引入axios
+# import axios from 'axios';
+# Vue.prototype.$axios =axios; // vue2
+# app.config.globalProperties.$axios=axios;  //vue3 配置axios的全局引用
+# 调用
+// 方法一 start
+    // const currentInstance = getCurrentInstance()
+    // const { $axios, $message, $route } = currentInstance.appContext.config.globalProperties
+    // 方法二 start
+    const { proxy } = getCurrentInstance()
+
+    onMounted(()=>{
+      proxy.$axios.get('/api/films').then((res)=>{
+        console.log('res', res)
+      })
+    })
