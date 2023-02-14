@@ -247,3 +247,42 @@ export default mockData
         console.log('res', res)
       })
     })
+
+# vue3使用jsx  (jsx in js)在js中使用jsx语法
+# https://blog.bingxs.com/vue3zazjsxbj.html
+# vite
+# 安装
+npm install @vitejs/plugin-vue-jsx -D
+# 配置 Vite vite.config.js
+import vueJsx from '@vitejs/plugin-vue-jsx' // Vue-jsx插件
+plugins: [
+    vue(),
+    // 配置Vue-jsx插件
+    vueJsx({
+      "include": ["src/**/*.js"]
+    })
+  ]
+
+## vue cli
+# 安装插件（ Vue 3 Babel JSX 插件）
+# npm install @vue/babel-plugin-jsx -D
+# 配置 Babel babel.config.json
+{
+  "plugins": ["@vue/babel-plugin-jsx"]
+}
+
+# css in js （在js中使用css）
+# 安装 npm install @styils/vue
+# 使用
+import {styled} from '@styils/vue' // css in js
+const DivModal = styled('div',{
+position: 'fixed',
+  width: '100%',
+  height: '100%',
+  left: '0',
+  top: '0',
+  zIndex: '999',
+  background: 'rgba(0, 0, 0, 0.5)',
+})
+
+# 渲染该标签 DivModal

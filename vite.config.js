@@ -20,6 +20,8 @@ export default defineConfig({
       // 需要需要它解析.vue扩展名下面的jsx
       // include: /\.[jt]sx/
       // include: /\.[jt]sx|vue/
+      // "include": ["src/**/*.vue", "src/**/*.tsx", "src/**/*.jsx", "src/**/*.ts", "src/**/*.js"]
+      "include": ["src/**/*.js"]
     }),
     viteMockServe({}),
     // antdesign
