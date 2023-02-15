@@ -8,7 +8,7 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 
 
 
-# 目标，参考http://boot3.jeecg.com/login?redirect=/dashboard/analysis
+# 目标，参考http://boot3.jeecg.com/login?redirect=/dashboard/analysis  https://snowy.xiaonuo.vip/login
 # 使用vite+vue3+antdesign 编写一个较为完整简单的管理后台 
 # 
 

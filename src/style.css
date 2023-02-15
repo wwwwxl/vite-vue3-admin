@@ -24,7 +24,9 @@
 }
 
 /* 在chrome 27之后，就取消了对这个属性的支持
-  利用css3的缩放，其最终大小就是：12px * 0.9（缩放比例） = 10.8px; */
+  利用css3的缩放，其最终大小就是：12px * 0.9（缩放比例） = 10.8px;
+  1rem = 10px
+*/
 html{
   -webkit-text-size-adjust:none;
   font-size:10px;
