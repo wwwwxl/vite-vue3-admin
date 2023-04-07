@@ -6,7 +6,7 @@ import router from './router/index.js';
 import Antd from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css'
 
-// import animated from 'animate.css'
+import animated from 'animate.css'
 
 import axios from 'axios';
 import validateReg from './utils/validateReg';
