@@ -7,9 +7,9 @@ import { viteMockServe } from 'vite-plugin-mock' // mock
 
 import { resolve } from 'path' // 使用import导入解决错误
 
-// antdesign按需引入(vite)
-import Components from 'unplugin-vue-components/vite';
-import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
+// antdesign按需引入(vite)缓慢以及不能使用message等方法，需要手动加载
+// import Components from 'unplugin-vue-components/vite';
+// import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -31,13 +31,13 @@ export default defineConfig({
     // }),
     viteMockServe({}),
     // antdesign
-    Components({
-        resolvers: [
-          AntDesignVueResolver({
-            importStyle: 'less', // 一定要开启这个配置项
-          })
-        ]
-    }),
+    // Components({
+    //     resolvers: [
+    //       AntDesignVueResolver({
+    //         importStyle: 'less', // 一定要开启这个配置项
+    //       })
+    //     ]
+    // }),
     legacy({
       polyfills: ['es.promise.finally', 'es/map', 'es/set'],
       modernPolyfills: ['es.promise.finally']

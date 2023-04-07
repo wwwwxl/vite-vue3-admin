@@ -290,3 +290,9 @@ position: 'fixed',
 # npm i @vitejs/plugin-vue-jsx -s
 
 # vite-plugin-optimize-persist
+
+# 第一个页面采用直接导入加载，加快加载速度。
+# 编译之后加载缓慢，发现是ant-design-vue加载缓慢或者解析过长。
+# vite按需引入，不能引入message等方法组件
+# 采用全局引入或者手动按需引入或者采用babel按需引入
+# 也有可能浏览器原因，换个浏览器试一试

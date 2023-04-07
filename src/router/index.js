@@ -2,10 +2,12 @@ import { createRouter,createWebHistory} from 'vue-router';
 
 
 // 组件引用
-const Login =()=> import('@/pages/login/index.vue')
+// const Login =()=> import('@/pages/login/index.vue')
 const Pinia =()=> import('@/pages/layouts/pinia.vue')
 const Test =()=> import('@/pages/layouts/test.vue')
 const Home =()=> import('@/pages/layouts/index.vue')
+
+import Login from "@/pages/login/index.vue"// 避免首屏加载缓慢
 
 const router = createRouter({
     routes: [

@@ -3,6 +3,8 @@ import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
 import router from './router/index.js';
+import Antd from 'ant-design-vue'
+import 'ant-design-vue/dist/antd.css'
 
 // import animated from 'animate.css'
 
@@ -28,4 +30,5 @@ app.config.globalProperties.$axios=axios;  //配置axios的全局引用
 app.use(validateReg)
 app.use(router)
 app.use(store)
+app.use(Antd)
 app.mount('#app')
