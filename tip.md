@@ -286,3 +286,7 @@ position: 'fixed',
 })
 
 # 渲染该标签 DivModal
+
+# npm i @vitejs/plugin-vue-jsx -s
+
+# vite-plugin-optimize-persist

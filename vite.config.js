@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 
 import vue from '@vitejs/plugin-vue'  // vue文件编译
 import vueJsx from '@vitejs/plugin-vue-jsx' // 使用Jsx
+import legacy from '@vitejs/plugin-legacy' // legacy
 import { viteMockServe } from 'vite-plugin-mock' // mock
 
 import { resolve } from 'path' // 使用import导入解决错误
@@ -12,17 +13,22 @@ import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  esbuild: {
+    jsxFactory: 'h',
+    jsxFragment: 'Fragment'
+  },
   plugins: [
     // vue
     vue(),
-    vueJsx({
-      // 默认只对扩展名为 .jsx/.tsx 进行babel解析
-      // 需要需要它解析.vue扩展名下面的jsx
-      // include: /\.[jt]sx/
-      // include: /\.[jt]sx|vue/
-      // "include": ["src/**/*.vue", "src/**/*.tsx", "src/**/*.jsx", "src/**/*.ts", "src/**/*.js"]
-      "include": ["src/**/*.js"]
-    }),
+    vueJsx(),
+    // vueJsx({
+    //   // 默认只对扩展名为 .jsx/.tsx 进行babel解析
+    //   // 需要需要它解析.vue扩展名下面的jsx
+    //   // include: /\.[jt]sx/
+    //   // include: /\.[jt]sx|vue/
+    //   // "include": ["src/**/*.vue", "src/**/*.tsx", "src/**/*.jsx", "src/**/*.ts", "src/**/*.js"]
+    //   "include": ["src/**/*.js"]
+    // }),
     viteMockServe({}),
     // antdesign
     Components({
@@ -31,8 +37,18 @@ export default defineConfig({
             importStyle: 'less', // 一定要开启这个配置项
           })
         ]
-    })
+    }),
+    legacy({
+      polyfills: ['es.promise.finally', 'es/map', 'es/set'],
+      modernPolyfills: ['es.promise.finally']
+    }),
   ],
+  optimizeDeps: {
+    force: true, // 强制进行依赖预构建
+    esbuildOptions:{
+      loader: {'.js':'jsx'},
+    },
+  },
   css: {
     preprocessorOptions: {
       less: {

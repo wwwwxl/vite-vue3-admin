@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@styils/vue": "^1.1.5",
+    "@vitejs/plugin-legacy": "^4.0.2",
     "animate.css": "^4.1.1",
     "ant-design-vue": "^3.2.15",
     "axios": "^1.3.2",

@@ -4,7 +4,7 @@ import './style.css'
 import App from './App.vue'
 import router from './router/index.js';
 
-import animated from 'animate.css'
+// import animated from 'animate.css'
 
 import axios from 'axios';
 import validateReg from './utils/validateReg';
